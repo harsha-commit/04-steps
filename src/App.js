@@ -4,6 +4,7 @@ const messages = [
   "Learn React 👨‍💻",
   "Apply for Jobs 💼",
   "Invest your New Income 💸",
+  "Live Happily 😄",
 ];
 
 // A concise way of declaring components
@@ -27,8 +28,8 @@ export default function App() {
 
   function nextButtonHandler() {
     setCurrentStep((prevStep) => {
-      if (prevStep !== 3) return prevStep + 1;
-      return 3;
+      if (prevStep !== 4) return prevStep + 1;
+      return 4;
     });
   }
 
@@ -46,9 +47,17 @@ export default function App() {
       {isOpen && (
         <div className="steps">
           <div className="numbers">
-            <div className={currentStep >= 1 ? "active" : ""}>1</div>
+            {messages.map((message, index) => {
+              return (
+                <div className={currentStep >= index + 1 ? "active" : ""}>
+                  {index + 1}
+                </div>
+              );
+            })}
+            {/* <div className={currentStep >= 1 ? "active" : ""}>1</div>
             <div className={currentStep >= 2 ? "active" : ""}>2</div>
             <div className={currentStep >= 3 ? "active" : ""}>3</div>
+            <div className={currentStep >= 4 ? "active" : ""}>4</div> */}
           </div>
 
           <p className="message">
@@ -57,14 +66,22 @@ export default function App() {
 
           <div className="buttons">
             <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              style={{
+                backgroundColor: `${currentStep > 1 ? "#7950f2" : "gray"}`,
+                color: "#fff",
+              }}
               onClick={previousButtonHandler}
+              disabled={currentStep === 1}
             >
               Previous
             </button>
             <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              style={{
+                backgroundColor: `${currentStep < 4 ? "#7950f2" : "gray"}`,
+                color: "#fff",
+              }}
               onClick={nextButtonHandler}
+              disabled={currentStep === 4}
             >
               Next
             </button>
