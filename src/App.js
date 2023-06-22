@@ -7,8 +7,8 @@ const messages = [
   "Live Happily 😄",
 ];
 
-// A concise way of declaring components
-// Handling events using onClick, onChange, etc
+// A concise way of declaring components => export default function App() {}
+// Handling events we use onClick, onChange, etc
 // everything starting with "use" are Hooks
 // Hooks MUST BE at function top level, not inside if-else, loop, inner function, etc
 // DO NOT SET STATE VARIABLES MANUALLY, doesn't work (Component is a function)
@@ -77,17 +77,40 @@ export default function App() {
             </button>
             <button
               style={{
-                backgroundColor: `${currentStep < 4 ? "#7950f2" : "gray"}`,
+                backgroundColor: `${
+                  currentStep < messages.length ? "#7950f2" : "gray"
+                }`,
                 color: "#fff",
               }}
               onClick={nextButtonHandler}
-              disabled={currentStep === 4}
+              disabled={currentStep === messages.length}
             >
               Next
             </button>
           </div>
         </div>
       )}
+
+      <div className="steps">
+        <h3 style={{ marginTop: "15px" }}>Links to Refer:</h3>
+        <ul>
+          <li>
+            <a href="https://github.com/harsha-commit/04-steps/blob/main/src/App.js">
+              Improved Code + Notes 📒
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/harsha-vardhan96/"
+              style={{
+                direction: "rtl",
+              }}
+            >
+              Connect with Me 🔗
+            </a>
+          </li>
+        </ul>
+      </div>
     </React.Fragment>
   );
 }
