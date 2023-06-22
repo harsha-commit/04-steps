@@ -92,7 +92,7 @@ export default function App() {
       )}
 
       <div className="steps">
-        <h3 style={{ marginTop: "15px" }}>Links to Refer:</h3>
+        <h3 style={{ marginTop: "15px" }}>Links to Refer: 🔥</h3>
         <ul>
           <li>
             <a href="https://github.com/harsha-commit/04-steps/blob/main/src/App.js">
